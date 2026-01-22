@@ -8,6 +8,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+app.use(cors({
+  origin: "https://luxe-frontend-ecommerce.vercel.app/", // Use your actual frontend URL
+  credentials: true
+}));
+
 // Health Check Route
 app.get("/", (req, res) => {
   res.status(200).json({ message: "LUXE API is running successfully!" });
